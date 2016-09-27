@@ -1,0 +1,17 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+#Eclipse project related#
+.classpath
+.project
+.settings
+test-output
+target
+
+# properties for a folder in mac ox 
+.DS_Store
+

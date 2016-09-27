@@ -1,2 +1,1 @@
-# javascript-ut
-javascript UT Maven Webapp
+JavaScript UT Maven Webapp
