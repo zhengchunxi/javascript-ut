@@ -23,7 +23,6 @@
 	</dependencies>
 
 	<profiles>
-		<!-- 配置jdk信息，避免执行mvn clean compile package抛: [ERROR] (请使用 -source 7 或更高版本以允许 switch 中存在字符串) -->
 		<profile>
 			<id>jdk-1.7</id>
 			<activation>
@@ -37,6 +36,7 @@
 			</properties>
 		</profile>
 	</profiles>
+	
 	<build>
 		<finalName>javascript-UT-Maven-Webapp</finalName>
 		<plugins>
@@ -47,6 +47,9 @@
 				<executions>
 					<execution>
 						<configuration>
+							<!-- <webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName> -->
+						    <webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
+							<preloadSources>src/main/webapp/jquery/jquery-2.1.4.min.js</preloadSources>
 						    <jsSrcDir>src/main/webapp/javascript</jsSrcDir>
 						    <jsTestSrcDir>src/main/webapp/javascript-test</jsTestSrcDir>
 							<webDriverCapabilities>
@@ -56,9 +59,7 @@
 								</webDriverCapability>
 							</webDriverCapabilities>
 						</configuration>
-						<goals>
-							<goal>test</goal>
-						</goals>
+						<goals><goal>test</goal></goals>
 					</execution>
 				</executions>
 			</plugin>

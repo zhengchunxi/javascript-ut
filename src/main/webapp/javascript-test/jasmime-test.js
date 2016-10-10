@@ -36,6 +36,16 @@ describe("test add.js", function() {
 
 describe("A spec with nested inside", function() {
 	var foo;
+	beforeAll(function(){
+		console.log('beforeAll')
+		this.x = 'Another way to share variables between a beforeEach, it, and afterEach is through the this keyword'
+	});
+	
+	afterAll(function(){
+		console.log(this.x)
+		console.log('afterAll')
+	});
+	
 	beforeEach(function() {
 		foo = 0;
 		foo += 1;
@@ -84,3 +94,38 @@ describe("Pending specs", function() {
 		pending();
 	});
 });
+
+
+describe("asmine has test double functions called spies. A spy can stub any function and tracks calls to it and all arguments. A spy only exists in the describe or it block in which it is defined, and will be removed after each spec. There are special matchers for interacting with spies. ", function() {
+	  var foo, bar = null;
+
+	  beforeEach(function() {
+	    foo = {
+	      setBar: function(value) {
+	        bar = value;
+	      }
+	    };
+
+	    spyOn(foo, 'setBar');
+
+	    foo.setBar(123);
+	    foo.setBar(456, 'another param');
+	  });
+
+	  it("tracks that the spy was called", function() {
+	    expect(foo.setBar).toHaveBeenCalled();
+	  });
+
+	  it("tracks that the spy was called x times", function() {
+	    expect(foo.setBar).toHaveBeenCalledTimes(2);
+	  });
+
+	  it("tracks all the arguments of its calls", function() {
+	    expect(foo.setBar).toHaveBeenCalledWith(123);
+	    expect(foo.setBar).toHaveBeenCalledWith(456, 'another param');
+	  });
+
+	  it("stops all execution on a function", function() {
+	    expect(bar).toBeNull();
+	  });
+	});
