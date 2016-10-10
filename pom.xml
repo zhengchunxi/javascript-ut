@@ -23,8 +23,7 @@
 	</dependencies>
 
 	<profiles>
-		<!-- 配置jdk信息，避免执行mvn clean compile package抛: [ERROR] (请使用 -source 7 或更高版本以允许 
-			switch 中存在字符串) -->
+		<!-- 配置jdk信息，避免执行mvn clean compile package抛: [ERROR] (请使用 -source 7 或更高版本以允许 switch 中存在字符串) -->
 		<profile>
 			<id>jdk-1.7</id>
 			<activation>
@@ -39,6 +38,30 @@
 		</profile>
 	</profiles>
 	<build>
-		<finalName>Jasmine</finalName>
+		<finalName>javascript-UT-Maven-Webapp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>com.github.searls</groupId>
+				<artifactId>jasmine-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<configuration>
+						    <jsSrcDir>src/main/webapp/javascript</jsSrcDir>
+						    <jsTestSrcDir>src/main/webapp/javascript-test</jsTestSrcDir>
+							<webDriverCapabilities>
+								<webDriverCapability>
+									<name>phantomjs.binary.path</name>
+									<value>/home/workspace/phantomjs-2.1.1/bin/phantomjs</value>
+								</webDriverCapability>
+							</webDriverCapabilities>
+						</configuration>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>
