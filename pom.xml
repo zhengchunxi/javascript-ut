@@ -14,12 +14,12 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<profiles>
@@ -47,7 +47,6 @@
 				<executions>
 					<execution>
 						<configuration>
-							<!-- <webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName> -->
 						    <webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
 							<preloadSources>src/main/webapp/jquery/jquery-2.1.4.min.js</preloadSources>
 						    <jsSrcDir>src/main/webapp/javascript</jsSrcDir>
@@ -55,7 +54,7 @@
 							<webDriverCapabilities>
 								<webDriverCapability>
 									<name>phantomjs.binary.path</name>
-									<value>/home/workspace/phantomjs-2.1.1/bin/phantomjs</value>
+									<value>/home/workspace/javascript/phantomjs-2.1.1/bin/phantomjs</value>
 								</webDriverCapability>
 							</webDriverCapabilities>
 						</configuration>

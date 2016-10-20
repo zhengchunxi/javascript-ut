@@ -96,7 +96,7 @@ describe("Pending specs", function() {
 });
 
 
-describe("asmine has test double functions called spies. A spy can stub any function and tracks calls to it and all arguments. A spy only exists in the describe or it block in which it is defined, and will be removed after each spec. There are special matchers for interacting with spies. ", function() {
+describe("jasmine has test double functions called spies. A spy can stub any function and tracks calls to it and all arguments. A spy only exists in the describe or it block in which it is defined, and will be removed after each spec. There are special matchers for interacting with spies. ", function() {
 	  var foo, bar = null;
 
 	  beforeEach(function() {
