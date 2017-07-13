@@ -13,15 +13,6 @@
 		<jdk.version>1.7</jdk.version>
 	</properties>
 
-	<dependencies>
-		<!-- <dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency> -->
-	</dependencies>
-
 	<profiles>
 		<profile>
 			<id>jdk-1.7</id>
@@ -36,7 +27,7 @@
 			</properties>
 		</profile>
 	</profiles>
-	
+
 	<build>
 		<finalName>javascript-UT-Maven-Webapp</finalName>
 		<plugins>
@@ -46,19 +37,39 @@
 				<version>2.2</version>
 				<executions>
 					<execution>
+						<id>ubuntu</id>
+						<phase>test</phase>
 						<configuration>
-						    <webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
+							<webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
 							<preloadSources>src/main/webapp/jquery/jquery-2.1.4.min.js</preloadSources>
-						    <jsSrcDir>src/main/webapp/javascript</jsSrcDir>
-						    <jsTestSrcDir>src/main/webapp/javascript-test</jsTestSrcDir>
+							<jsSrcDir>src/main/webapp/javascript</jsSrcDir>
+							<jsTestSrcDir>src/main/webapp/javascript-test</jsTestSrcDir>
 							<webDriverCapabilities>
 								<webDriverCapability>
 									<name>phantomjs.binary.path</name>
-									<value>${pom.basedir}/src/main/webapp/phantomjs</value>
+									<value>${pom.basedir}/src/main/webapp/phantomjs/ubuntu.64.phantomjs</value>
 								</webDriverCapability>
 							</webDriverCapabilities>
 						</configuration>
-						<goals><goal>test</goal></goals>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>mac</id>
+						<phase>test</phase>
+						<configuration>
+							<webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
+							<preloadSources>src/main/webapp/jquery/jquery-2.1.4.min.js</preloadSources>
+							<jsSrcDir>src/main/webapp/javascript</jsSrcDir>
+							<jsTestSrcDir>src/main/webapp/javascript-test</jsTestSrcDir>
+							<webDriverCapabilities>
+								<webDriverCapability>
+									<name>phantomjs.binary.path</name>
+									<value>${pom.basedir}/src/main/webapp/phantomjs/mac.phantomjs</value>
+								</webDriverCapability>
+							</webDriverCapabilities>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
