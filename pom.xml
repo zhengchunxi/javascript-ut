@@ -54,7 +54,7 @@
 							<webDriverCapabilities>
 								<webDriverCapability>
 									<name>phantomjs.binary.path</name>
-									<value>/home/workspace/javascript/phantomjs-2.1.1/bin/phantomjs</value>
+									<value>${pom.basedir}/src/main/webapp/phantomjs</value>
 								</webDriverCapability>
 							</webDriverCapabilities>
 						</configuration>
